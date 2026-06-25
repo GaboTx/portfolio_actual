@@ -591,19 +591,18 @@ a { color: inherit; text-decoration: none; }
 
 .exp-svg {
   width: 100%;
-  border-radius: var(--radius);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
   display: block;
-}
-.exp-svg.visible {
   opacity: 1;
-  transform: translateY(0);
+  animation: svgFadeIn 0.8s ease both;
 }
-/* Fallback: if JS fails or reduced-motion, always show */
+
+@keyframes svgFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .exp-svg { opacity: 1; transform: none; }
+  .exp-svg { animation: none; }
 }
 
 /* =====================

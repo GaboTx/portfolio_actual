@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gabriel Sareñana Labra — Operational Analysis Coordinator at VivaAerobus. MSc Applied AI. Data engineering, flight ops analytics, Python, BigQuery.">
+  <title>Gabriel Sareñana — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <span class="nav-logo">GS<span class="nav-logo-dot">.</span></span>
+      <ul class="nav-links">
+        <li><a href="#work">Trabajo</a></li>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact" class="nav-cta">Contacto</a></li>
+      </ul>
+      <button class="nav-burger" id="burger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot-live"></span>
+        Monterrey, México · Disponible
+      </div>
+
+      <h1 class="hero-name">
+        <span class="hero-name-first">Gabriel</span>
+        <span class="hero-name-last">Sareñana</span>
+      </h1>
+
+      <p class="hero-title">
+        Operational Analysis Coordinator
+        <span class="hero-title-at">@</span>
+        <span class="hero-title-company">VivaAerobus</span>
+      </p>
+
+      <p class="hero-sub">
+        Ingeniero Mecatrónico con MSc en IA Aplicada. Construyo sistemas de datos
+        y analítica operacional para mejorar la performance de una aerolínea.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">Ver mi trabajo</a>
+        <a href="mailto:gabsala99@gmail.com" class="btn-ghost">Escríbeme</a>
+      </div>
+    </div>
+
+    <!-- HUD VISUAL -->
+    <div class="hud-container" aria-hidden="true">
+      <div class="hud">
+        <div class="hud-frame">
+          <div class="hud-scanline"></div>
+
+          <!-- Horizon line -->
+          <div class="hud-horizon">
+            <div class="hud-horizon-line"></div>
+            <div class="hud-pitch-marks">
+              <span>+10°</span>
+              <span>+5°</span>
+              <span>0°</span>
+              <span>-5°</span>
+              <span>-10°</span>
+            </div>
+          </div>
+
+          <!-- Top data row -->
+          <div class="hud-row hud-row-top">
+            <div class="hud-metric">
+              <span class="hud-label">ALTITUDE</span>
+              <span class="hud-value" id="hud-alt">33,500</span>
+              <span class="hud-unit">FT</span>
+            </div>
+            <div class="hud-metric hud-metric-center">
+              <span class="hud-label">HEADING</span>
+              <span class="hud-value" id="hud-hdg">184</span>
+              <span class="hud-unit">°</span>
+            </div>
+            <div class="hud-metric hud-metric-right">
+              <span class="hud-label">AIRSPEED</span>
+              <span class="hud-value" id="hud-spd">412</span>
+              <span class="hud-unit">KTS</span>
+            </div>
+          </div>
+
+          <!-- Center reticle -->
+          <div class="hud-reticle">
+            <div class="hud-reticle-ring"></div>
+            <div class="hud-reticle-cross">
+              <span class="hud-cross-h"></span>
+              <span class="hud-cross-v"></span>
+            </div>
+          </div>
+
+          <!-- Bottom data row -->
+          <div class="hud-row hud-row-bottom">
+            <div class="hud-metric">
+              <span class="hud-label">BLOCK TIME REL.</span>
+              <span class="hud-value hud-green" id="hud-btr">97.4</span>
+              <span class="hud-unit">%</span>
+            </div>
+            <div class="hud-metric hud-metric-center">
+              <span class="hud-label">OTP</span>
+              <span class="hud-value hud-green" id="hud-otp">88.2</span>
+              <span class="hud-unit">%</span>
+            </div>
+            <div class="hud-metric hud-metric-right">
+              <span class="hud-label">FUEL EFF.</span>
+              <span class="hud-value" id="hud-fuel">98.1</span>
+              <span class="hud-unit">%</span>
+            </div>
+          </div>
+
+          <!-- Corners -->
+          <span class="hud-corner hud-tl"></span>
+          <span class="hud-corner hud-tr"></span>
+          <span class="hud-corner hud-bl"></span>
+          <span class="hud-corner hud-br"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- WORK / EXPERIENCE -->
+  <section class="section" id="work">
+    <div class="section-label">01 — EXPERIENCIA</div>
+
+    <!-- EXP 1: VivaAerobus -->
+    <article class="exp-block" id="exp-viva">
+      <div class="exp-meta">
+        <div class="exp-period">Sep 2025 — Presente</div>
+        <div class="exp-status">
+          <span class="dot-live"></span> En curso
+        </div>
+      </div>
+
+      <div class="exp-main">
+        <div class="exp-text">
+          <div class="exp-company-tag">VivaAerobus · Monterrey</div>
+          <h2 class="exp-title">Coordinador de<br>Análisis Operacional</h2>
+          <p class="exp-desc">
+            Análisis y monitoreo de performance operacional de la aerolínea: Block Time Reliability, On-Time Performance, demoras, taxi times y calidad de datos de vuelo. Desarrollo de dashboards, pipelines de datos y herramientas internas de automatización.
+          </p>
+          <ul class="exp-highlights">
+            <li>Pipelines BigQuery + Dataform para datos de vuelo en tiempo real</li>
+            <li>Dashboards Power BI para directores y gerentes de Flight Ops</li>
+            <li>KPI Tracker web app (Google Apps Script) con control de acceso por rol</li>
+            <li>Colaboración cross-funcional: OCC, Maintenance, Finance, Fuel</li>
+          </ul>
+          <div class="exp-stack">
+            <span>Python</span><span>SQL</span><span>BigQuery</span><span>Dataform</span><span>Power BI</span><span>Dash</span><span>GAS</span>
+          </div>
+        </div>
+
+        <div class="exp-visual" id="vis-viva">
+          <!-- SVG: Flight data dashboard illustration -->
+          <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="exp-svg">
+            <!-- Screen frame -->
+            <rect x="20" y="10" width="380" height="260" rx="10" fill="#0f1622" stroke="#4d9eff" stroke-width="1.5"/>
+            <rect x="20" y="10" width="380" height="28" rx="10" fill="#162133"/>
+            <rect x="20" y="28" width="380" height="10" fill="#162133"/>
+            <!-- Window controls -->
+            <circle cx="40" cy="24" r="5" fill="#ff5f57"/>
+            <circle cx="58" cy="24" r="5" fill="#febc2e"/>
+            <circle cx="76" cy="24" r="5" fill="#28c840"/>
+            <!-- Title bar text -->
+            <text x="210" y="28" text-anchor="middle" fill="#4d9eff" font-size="10" font-family="JetBrains Mono,monospace" opacity="0.7">FLIGHT_OPS_ANALYTICS — DASHBOARD</text>
+
+            <!-- Chart 1: BTR Bar chart -->
+            <text x="40" y="65" fill="#8899aa" font-size="9" font-family="JetBrains Mono,monospace">BLOCK TIME RELIABILITY · 2025</text>
+            <g class="bar-group">
+              <!-- bars -->
+              <rect x="40" y="115" width="18" height="50" rx="2" fill="#4d9eff" opacity="0.6" class="bar"/>
+              <rect x="64" y="105" width="18" height="60" rx="2" fill="#4d9eff" opacity="0.7" class="bar"/>
+              <rect x="88" y="100" width="18" height="65" rx="2" fill="#4d9eff" opacity="0.8" class="bar"/>
+              <rect x="112" y="92" width="18" height="73" rx="2" fill="#4d9eff" opacity="0.9" class="bar"/>
+              <rect x="136" y="88" width="18" height="77" rx="2" fill="#4d9eff" class="bar"/>
+              <rect x="160" y="80" width="18" height="85" rx="2" fill="#4d9eff" class="bar"/>
+              <!-- month labels -->
+              <text x="49" y="175" fill="#556677" font-size="7" text-anchor="middle" font-family="Inter,sans-serif">ENE</text>
+              <text x="73" y="175" fill="#556677" font-size="7" text-anchor="middle" font-family="Inter,sans-serif">FEB</text>
+              <text x="97" y="175" fill="#556677" font-size="7" text-anchor="middle" font-family="Inter,sans-serif">MAR</text>
+              <text x="121" y="175" fill="#556677" font-size="7" text-anchor="middle" font-family="Inter,sans-serif">ABR</text>
+              <text x="145" y="175" fill="#556677" font-size="7" text-anchor="middle" font-family="Inter,sans-serif">MAY</text>
+              <text x="169" y="175" fill="#556677" font-size="7" text-anchor="middle" font-family="Inter,sans-serif">JUN</text>
+              <!-- value labels -->
+              <text x="49" y="112" fill="#4d9eff" font-size="7" text-anchor="middle" font-family="JetBrains Mono,monospace">94.1</text>
+              <text x="73" y="102" fill="#4d9eff" font-size="7" text-anchor="middle" font-family="JetBrains Mono,monospace">95.3</text>
+              <text x="97" y="97" fill="#4d9eff" font-size="7" text-anchor="middle" font-family="JetBrains Mono,monospace">95.8</text>
+              <text x="121" y="89" fill="#4d9eff" font-size="7" text-anchor="middle" font-family="JetBrains Mono,monospace">96.6</text>
+              <text x="145" y="85" fill="#4d9eff" font-size="7" text-anchor="middle" font-family="JetBrains Mono,monospace">97.0</text>
+              <text x="169" y="77" fill="#4d9eff" font-size="7" text-anchor="middle" font-family="JetBrains Mono,monospace">97.4</text>
+            </g>
+
+            <!-- Divider -->
+            <line x1="210" y1="55" x2="210" y2="240" stroke="#1e2d42" stroke-width="1"/>
+            <line x1="40" y1="185" x2="195" y2="185" stroke="#1e2d42" stroke-width="1"/>
+
+            <!-- KPI cards right side -->
+            <text x="225" y="65" fill="#8899aa" font-size="9" font-family="JetBrains Mono,monospace">LIVE KPIs</text>
+            <!-- OTP card -->
+            <rect x="225" y="72" width="80" height="46" rx="6" fill="#162133" stroke="#1e2d42" stroke-width="1"/>
+            <text x="235" y="88" fill="#8899aa" font-size="8" font-family="Inter,sans-serif">On-Time Perf.</text>
+            <text x="235" y="108" fill="#28c840" font-size="20" font-weight="700" font-family="JetBrains Mono,monospace">88.2%</text>
+            <!-- Delay avg card -->
+            <rect x="315" y="72" width="80" height="46" rx="6" fill="#162133" stroke="#1e2d42" stroke-width="1"/>
+            <text x="325" y="88" fill="#8899aa" font-size="8" font-family="Inter,sans-serif">Avg Delay</text>
+            <text x="325" y="108" fill="#f0a500" font-size="20" font-weight="700" font-family="JetBrains Mono,monospace">12.4m</text>
+
+            <!-- Mini line chart -->
+            <text x="225" y="138" fill="#8899aa" font-size="9" font-family="JetBrains Mono,monospace">FUEL EFFICIENCY TREND</text>
+            <polyline points="225,200 255,193 285,188 315,183 345,178 375,170" stroke="#f0a500" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="225,200 255,193 285,188 315,183 345,178 375,170 375,210 225,210" fill="#f0a500" fill-opacity="0.07"/>
+            <!-- dots on line -->
+            <circle cx="225" cy="200" r="3" fill="#f0a500"/>
+            <circle cx="255" cy="193" r="3" fill="#f0a500"/>
+            <circle cx="285" cy="188" r="3" fill="#f0a500"/>
+            <circle cx="315" cy="183" r="3" fill="#f0a500"/>
+            <circle cx="345" cy="178" r="3" fill="#f0a500"/>
+            <circle cx="375" cy="170" r="4" fill="#f0a500" stroke="#0a0c10" stroke-width="2"/>
+
+            <!-- Bottom pipeline -->
+            <text x="40" y="198" fill="#8899aa" font-size="9" font-family="JetBrains Mono,monospace">DATAFORM PIPELINE</text>
+            <rect x="40" y="205" width="48" height="22" rx="4" fill="#162133" stroke="#4d9eff" stroke-width="0.8"/>
+            <text x="64" y="219" text-anchor="middle" fill="#4d9eff" font-size="8" font-family="JetBrains Mono,monospace">BigQuery</text>
+            <line x1="88" y1="216" x2="103" y2="216" stroke="#4d9eff" stroke-width="1" stroke-dasharray="3,2"/>
+            <polygon points="103,213 109,216 103,219" fill="#4d9eff"/>
+            <rect x="109" y="205" width="52" height="22" rx="4" fill="#162133" stroke="#4d9eff" stroke-width="0.8"/>
+            <text x="135" y="219" text-anchor="middle" fill="#4d9eff" font-size="8" font-family="JetBrains Mono,monospace">Dataform</text>
+            <line x1="161" y1="216" x2="176" y2="216" stroke="#4d9eff" stroke-width="1" stroke-dasharray="3,2"/>
+            <polygon points="176,213 182,216 176,219" fill="#4d9eff"/>
+            <rect x="159" y="205" width="40" height="22" rx="4" fill="#162133" stroke="#28c840" stroke-width="0.8"/>
+            <text x="179" y="219" text-anchor="middle" fill="#28c840" font-size="8" font-family="JetBrains Mono,monospace">Power BI</text>
+
+            <!-- Stand -->
+            <rect x="185" y="270" width="50" height="8" rx="2" fill="#1a2535"/>
+            <rect x="195" y="263" width="30" height="10" rx="1" fill="#162133" stroke="#1e2d42" stroke-width="1"/>
+          </svg>
+        </div>
+      </div>
+    </article>
+
+    <!-- EXP 2: Quanta -->
+    <article class="exp-block exp-block-alt" id="exp-quanta">
+      <div class="exp-meta">
+        <div class="exp-period">Feb 2023 — Ago 2025</div>
+      </div>
+
+      <div class="exp-main">
+        <div class="exp-visual" id="vis-quanta">
+          <!-- SVG: PCB / SMT manufacturing illustration -->
+          <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="exp-svg">
+            <!-- PCB Board -->
+            <rect x="30" y="30" width="360" height="280" rx="8" fill="#0d2010" stroke="#2d6b20" stroke-width="2"/>
+            <!-- Grid traces -->
+            <g opacity="0.3" stroke="#2d6b20" stroke-width="0.5">
+              <line x1="30" y1="70" x2="390" y2="70"/>
+              <line x1="30" y1="110" x2="390" y2="110"/>
+              <line x1="30" y1="150" x2="390" y2="150"/>
+              <line x1="30" y1="190" x2="390" y2="190"/>
+              <line x1="30" y1="230" x2="390" y2="230"/>
+              <line x1="80" y1="30" x2="80" y2="310"/>
+              <line x1="130" y1="30" x2="130" y2="310"/>
+              <line x1="180" y1="30" x2="180" y2="310"/>
+              <line x1="230" y1="30" x2="230" y2="310"/>
+              <line x1="280" y1="30" x2="280" y2="310"/>
+              <line x1="330" y1="30" x2="330" y2="310"/>
+            </g>
+
+            <!-- Copper traces -->
+            <g stroke="#c87833" stroke-width="2" fill="none">
+              <path d="M80 90 H180 V150 H280 V230 H330"/>
+              <path d="M130 70 V110 H230 V190 H80 V270"/>
+              <path d="M280 70 V150 H180 V230"/>
+              <path d="M80 150 H130"/>
+              <path d="M330 110 V190"/>
+            </g>
+
+            <!-- SMT Components -->
+            <!-- CPU/chip -->
+            <rect x="150" y="125" width="80" height="50" rx="4" fill="#1a3020" stroke="#4daa30" stroke-width="2"/>
+            <text x="190" y="155" text-anchor="middle" fill="#4daa30" font-size="10" font-family="JetBrains Mono,monospace">SMT-CPU</text>
+            <text x="190" y="167" text-anchor="middle" fill="#4daa30" font-size="7" font-family="JetBrains Mono,monospace">EV-CTRL</text>
+            <!-- chip pins -->
+            <g fill="#c87833">
+              <rect x="146" y="133" width="5" height="4" rx="1"/>
+              <rect x="146" y="143" width="5" height="4" rx="1"/>
+              <rect x="146" y="153" width="5" height="4" rx="1"/>
+              <rect x="146" y="163" width="5" height="4" rx="1"/>
+              <rect x="229" y="133" width="5" height="4" rx="1"/>
+              <rect x="229" y="143" width="5" height="4" rx="1"/>
+              <rect x="229" y="153" width="5" height="4" rx="1"/>
+              <rect x="229" y="163" width="5" height="4" rx="1"/>
+              <rect x="158" y="121" width="4" height="5" rx="1"/>
+              <rect x="168" y="121" width="4" height="5" rx="1"/>
+              <rect x="178" y="121" width="4" height="5" rx="1"/>
+              <rect x="188" y="121" width="4" height="5" rx="1"/>
+              <rect x="198" y="121" width="4" height="5" rx="1"/>
+              <rect x="208" y="121" width="4" height="5" rx="1"/>
+              <rect x="158" y="174" width="4" height="5" rx="1"/>
+              <rect x="168" y="174" width="4" height="5" rx="1"/>
+              <rect x="178" y="174" width="4" height="5" rx="1"/>
+              <rect x="188" y="174" width="4" height="5" rx="1"/>
+              <rect x="198" y="174" width="4" height="5" rx="1"/>
+              <rect x="208" y="174" width="4" height="5" rx="1"/>
+            </g>
+
+            <!-- Capacitors -->
+            <rect x="65" y="85" width="20" height="10" rx="2" fill="#1a3020" stroke="#4daa30" stroke-width="1.5"/>
+            <rect x="65" y="100" width="20" height="10" rx="2" fill="#1a3020" stroke="#4daa30" stroke-width="1.5"/>
+            <rect x="300" y="85" width="20" height="10" rx="2" fill="#1a3020" stroke="#4daa30" stroke-width="1.5"/>
+            <rect x="300" y="100" width="20" height="10" rx="2" fill="#1a3020" stroke="#4daa30" stroke-width="1.5"/>
+
+            <!-- Resistors -->
+            <rect x="65" y="200" width="28" height="10" rx="3" fill="#c87833" stroke="#a06020" stroke-width="1"/>
+            <line x1="93" y1="205" x2="100" y2="205" stroke="#c87833" stroke-width="1.5"/>
+            <line x1="65" y1="205" x2="58" y2="205" stroke="#c87833" stroke-width="1.5"/>
+            <rect x="305" y="200" width="28" height="10" rx="3" fill="#c87833" stroke="#a06020" stroke-width="1"/>
+
+            <!-- LED indicators -->
+            <circle cx="80" cy="260" r="6" fill="#28c840" opacity="0.8"/>
+            <circle cx="80" cy="260" r="3" fill="#50ff70"/>
+            <circle cx="110" cy="260" r="6" fill="#28c840" opacity="0.6"/>
+            <circle cx="110" cy="260" r="3" fill="#50ff70"/>
+            <circle cx="140" cy="260" r="6" fill="#f0a500" opacity="0.8"/>
+            <circle cx="140" cy="260" r="3" fill="#ffcc30"/>
+
+            <!-- Corner mounting holes -->
+            <circle cx="50" cy="50" r="8" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.5"/>
+            <circle cx="370" cy="50" r="8" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.5"/>
+            <circle cx="50" cy="290" r="8" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.5"/>
+            <circle cx="370" cy="290" r="8" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.5"/>
+
+            <!-- KPI overlay -->
+            <rect x="270" y="210" width="100" height="70" rx="6" fill="#0a0f08" fill-opacity="0.85" stroke="#4daa30" stroke-width="1"/>
+            <text x="320" y="228" text-anchor="middle" fill="#4daa30" font-size="8" font-family="JetBrains Mono,monospace">YIELD RATE</text>
+            <text x="320" y="248" text-anchor="middle" fill="#28c840" font-size="22" font-weight="700" font-family="JetBrains Mono,monospace">99.2%</text>
+            <text x="320" y="264" text-anchor="middle" fill="#4daa30" font-size="7" font-family="JetBrains Mono,monospace">OEE · TESLA EV</text>
+            <text x="320" y="276" text-anchor="middle" fill="#4daa30" font-size="7" font-family="JetBrains Mono,monospace">PCB PRODUCTION</text>
+          </svg>
+        </div>
+
+        <div class="exp-text">
+          <div class="exp-company-tag">Quanta México · Monterrey</div>
+          <h2 class="exp-title">SMT Manufacturing<br>Engineer</h2>
+          <p class="exp-desc">
+            Manufactura de PCBs para vehículos eléctricos Tesla. Operaciones SMT, coordinación con proveedores y mejora continua de rendimiento en una línea de alta producción.
+          </p>
+          <ul class="exp-highlights">
+            <li>KPI monitoring y root cause analysis de defectos en línea SMT</li>
+            <li>Lean Manufacturing y Six Sigma para reducción de downtime</li>
+            <li>Power BI dashboards para tracking de OEE y rendimiento de equipos</li>
+            <li>Python automation para inspección y análisis de datos de producción</li>
+          </ul>
+          <div class="exp-stack">
+            <span>Python</span><span>Power BI</span><span>Lean</span><span>Six Sigma</span><span>SMT</span><span>OEE</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- EXP 3: Infosys -->
+    <article class="exp-block" id="exp-infosys">
+      <div class="exp-meta">
+        <div class="exp-period">Ene — Nov 2022</div>
+      </div>
+
+      <div class="exp-main">
+        <div class="exp-text">
+          <div class="exp-company-tag">Infosys · Monterrey</div>
+          <h2 class="exp-title">Systems<br>Engineer</h2>
+          <p class="exp-desc">
+            Infosys Foundation Program: desarrollo full-stack, gestión de bases de datos y metodologías ágiles. Soporte a proyectos de tecnología financiera para LPL Financial.
+          </p>
+          <ul class="exp-highlights">
+            <li>Desarrollo backend con Java y Spring Boot, frontend con AngularJS</li>
+            <li>Base de datos MySQL, gestión de esquemas y queries complejos</li>
+            <li>Sprints Scrum, code reviews y documentación técnica</li>
+          </ul>
+          <div class="exp-stack">
+            <span>Java</span><span>Spring Boot</span><span>MySQL</span><span>AngularJS</span><span>Scrum</span>
+          </div>
+        </div>
+
+        <div class="exp-visual" id="vis-infosys">
+          <!-- SVG: Terminal / code illustration -->
+          <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="exp-svg">
+            <!-- Terminal window -->
+            <rect x="20" y="20" width="380" height="300" rx="10" fill="#0d0d14" stroke="#6b3fa0" stroke-width="1.5"/>
+            <rect x="20" y="20" width="380" height="36" rx="10" fill="#13101e"/>
+            <rect x="20" y="44" width="380" height="12" fill="#13101e"/>
+            <!-- window dots -->
+            <circle cx="42" cy="38" r="6" fill="#ff5f57"/>
+            <circle cx="62" cy="38" r="6" fill="#febc2e"/>
+            <circle cx="82" cy="38" r="6" fill="#28c840"/>
+            <!-- Terminal title -->
+            <text x="210" y="42" text-anchor="middle" fill="#9b6ed0" font-size="11" font-family="JetBrains Mono,monospace">infosys-dev — bash</text>
+
+            <!-- Code lines -->
+            <g font-family="JetBrains Mono,monospace" font-size="11">
+              <text x="36" y="78" fill="#6b3fa0">$</text>
+              <text x="50" y="78" fill="#cccccc"> git clone infosys/lpl-financial-api</text>
+              <text x="36" y="100" fill="#4daa30">Cloning into 'lpl-financial-api'...</text>
+              <text x="36" y="118" fill="#4daa30">✓ done.</text>
+
+              <text x="36" y="144" fill="#6b3fa0">$</text>
+              <text x="50" y="144" fill="#cccccc"> mvn spring-boot:run</text>
+              <text x="36" y="162" fill="#556677">  .   ____          _            __ </text>
+              <text x="36" y="178" fill="#556677"> /\\ / ___'_ __ _ _(_)_ __  __ _\ </text>
+              <text x="36" y="194" fill="#4daa30">Started Application in 2.341 seconds</text>
+
+              <text x="36" y="218" fill="#6b3fa0">$</text>
+              <text x="50" y="218" fill="#cccccc"> mysql -u root -p lpl_db</text>
+
+              <text x="36" y="240" fill="#9b6ed0">mysql&gt;</text>
+              <text x="86" y="240" fill="#4d9eff"> SELECT </text>
+              <text x="150" y="240" fill="#cccccc">COUNT(*) FROM transactions</text>
+              <text x="36" y="258" fill="#9b6ed0">       </text>
+              <text x="86" y="258" fill="#4d9eff">WHERE</text>
+              <text x="126" y="258" fill="#cccccc"> date &gt;= </text>
+              <text x="188" y="258" fill="#f0a500">'2022-01-01'</text>
+              <text x="258" y="258" fill="#9b6ed0">;</text>
+
+              <text x="36" y="280" fill="#556677">+-----------+</text>
+              <text x="36" y="296" fill="#556677">| </text>
+              <text x="53" y="296" fill="#28c840">1,482,930</text>
+              <text x="114" y="296" fill="#556677"> |</text>
+              <text x="36" y="312" fill="#556677">+-----------+</text>
+            </g>
+
+            <!-- Cursor blink -->
+            <rect x="36" y="318" width="8" height="13" rx="1" fill="#6b3fa0" class="cursor-blink"/>
+          </svg>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ABOUT / EDUCATION -->
+  <section class="section section-dark" id="about">
+    <div class="section-label">02 — SOBRE MÍ</div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="about-heading">Datos + Aviación<br><span class="about-heading-accent">+ Inteligencia Artificial</span></h2>
+        <p>
+          Soy de Cuernavaca, basado en Monterrey. Estudié Mecatrónica porque quería entender cómo funcionan los sistemas complejos — hardware, software y control en un solo proyecto. Hoy hago algo parecido, pero con datos: entender cómo funciona una aerolínea a través de sus números.
+        </p>
+        <p>
+          Actualmente curso la Maestría en IA Aplicada en el Tec de Monterrey, combinando ML aplicado con el contexto operacional de Flight Ops. Mi objetivo es construir sistemas que no solo analicen el pasado, sino que anticipen fallas y optimicen decisiones en tiempo real.
+        </p>
+        <div class="about-links">
+          <a href="https://github.com/GaboTx" target="_blank" class="about-link">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/gabsala99" target="_blank" class="about-link">LinkedIn ↗</a>
+          <a href="https://gabotx-portfolio.netlify.app" target="_blank" class="about-link">Portfolio ↗</a>
+        </div>
+      </div>
+
+      <div class="about-edu">
+        <div class="edu-item edu-item-active">
+          <div class="edu-year-tag">2024–2026</div>
+          <div class="edu-degree">Maestría en IA Aplicada</div>
+          <div class="edu-school">Tecnológico de Monterrey</div>
+          <div class="edu-badge">En curso</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year-tag">2017–2021</div>
+          <div class="edu-degree">Ing. Mecatrónico</div>
+          <div class="edu-school">La Salle Cuernavaca</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year-tag">2017–2021</div>
+          <div class="edu-degree">Diploma en Humanidades</div>
+          <div class="edu-school">La Salle Cuernavaca</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section-label">03 — SKILLS</div>
+
+    <div class="skills-header">
+      <h2 class="skills-title">Herramientas &amp; tecnologías</h2>
+    </div>
+
+    <div class="skills-categories">
+      <div class="skill-cat">
+        <div class="skill-cat-name">Data Engineering</div>
+        <div class="skill-bars">
+          <div class="skill-bar-item">
+            <span class="skill-name">Python · Pandas · SQL</span>
+            <div class="skill-track"><div class="skill-fill" data-w="95"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <span class="skill-name">BigQuery · Dataform</span>
+            <div class="skill-track"><div class="skill-fill" data-w="88"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <span class="skill-name">Google Apps Script</span>
+            <div class="skill-track"><div class="skill-fill" data-w="82"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-name">Visualización &amp; BI</div>
+        <div class="skill-bars">
+          <div class="skill-bar-item">
+            <span class="skill-name">Power BI · Tableau</span>
+            <div class="skill-track"><div class="skill-fill" data-w="92"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <span class="skill-name">Dash · Matplotlib</span>
+            <div class="skill-track"><div class="skill-fill" data-w="85"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <span class="skill-name">Excel Automation</span>
+            <div class="skill-track"><div class="skill-fill" data-w="90"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-name">Machine Learning</div>
+        <div class="skill-bars">
+          <div class="skill-bar-item">
+            <span class="skill-name">Scikit-learn · Keras</span>
+            <div class="skill-track"><div class="skill-fill" data-w="78"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <span class="skill-name">Predictive Modeling</span>
+            <div class="skill-track"><div class="skill-fill" data-w="75"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <span class="skill-name">Data Preprocessing</span>
+            <div class="skill-track"><div class="skill-fill" data-w="90"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-name">Ingeniería &amp; Cloud</div>
+        <div class="skill-bars">
+          <div class="skill-bar-item">
+            <span class="skill-name">Lean · Six Sigma</span>
+            <div class="skill-track"><div class="skill-fill" data-w="80"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <span class="skill-name">GCP · AWS Athena</span>
+            <div class="skill-track"><div class="skill-fill" data-w="70"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <span class="skill-name">MATLAB · AutoCAD</span>
+            <div class="skill-track"><div class="skill-fill" data-w="72"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lang-strip">
+      <div class="lang-item">
+        <span class="lang-flag">🇲🇽</span>
+        <span class="lang-name">Español</span>
+        <span class="lang-level-tag">Nativo</span>
+      </div>
+      <div class="lang-divider"></div>
+      <div class="lang-item">
+        <span class="lang-flag">🇺🇸</span>
+        <span class="lang-name">Inglés</span>
+        <span class="lang-level-tag">C1 · Profesional</span>
+      </div>
+      <div class="lang-divider"></div>
+      <div class="lang-item">
+        <span class="lang-flag">🇫🇷</span>
+        <span class="lang-name">Francés</span>
+        <span class="lang-level-tag">A2 · Básico</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section-contact" id="contact">
+    <div class="section-label">04 — CONTACTO</div>
+
+    <div class="contact-content">
+      <h2 class="contact-heading">¿Trabajamos<br>juntos?</h2>
+      <p class="contact-sub">Abierto a colaboraciones en analítica de datos, proyectos de IA aplicada o consultoría de operaciones.</p>
+      <a href="mailto:gabsala99@gmail.com" class="contact-email">gabsala99@gmail.com</a>
+
+      <div class="contact-socials">
+        <a href="https://www.linkedin.com/in/gabsala99" target="_blank">LinkedIn</a>
+        <a href="https://github.com/GaboTx" target="_blank">GitHub</a>
+        <a href="tel:+528123531396">+52 812 353 1396</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>Gabriel Sareñana Labra · 2026</span>
+    <span>Monterrey, México</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -267,95 +267,114 @@
 
       <div class="exp-main">
         <div class="exp-visual" id="vis-quanta">
-          <!-- SVG: PCB / SMT manufacturing illustration -->
-          <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="exp-svg">
-            <!-- PCB Board -->
-            <rect x="30" y="30" width="360" height="280" rx="8" fill="#0d2010" stroke="#2d6b20" stroke-width="2"/>
-            <!-- Grid traces -->
-            <g opacity="0.3" stroke="#2d6b20" stroke-width="0.5">
-              <line x1="30" y1="70" x2="390" y2="70"/>
-              <line x1="30" y1="110" x2="390" y2="110"/>
-              <line x1="30" y1="150" x2="390" y2="150"/>
-              <line x1="30" y1="190" x2="390" y2="190"/>
-              <line x1="30" y1="230" x2="390" y2="230"/>
-              <line x1="80" y1="30" x2="80" y2="310"/>
-              <line x1="130" y1="30" x2="130" y2="310"/>
-              <line x1="180" y1="30" x2="180" y2="310"/>
-              <line x1="230" y1="30" x2="230" y2="310"/>
-              <line x1="280" y1="30" x2="280" y2="310"/>
-              <line x1="330" y1="30" x2="330" y2="310"/>
+          <!-- SVG: PCB base + stakeholder integration overlay -->
+          <svg viewBox="0 0 420 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="exp-svg">
+
+            <!-- ── PCB BACKGROUND (dimmed) ── -->
+            <rect x="15" y="15" width="390" height="330" rx="8" fill="#0d2010" stroke="#2d6b20" stroke-width="1.5"/>
+            <!-- PCB grid -->
+            <g opacity="0.18" stroke="#2d6b20" stroke-width="0.5">
+              <line x1="15" y1="55" x2="405" y2="55"/><line x1="15" y1="95" x2="405" y2="95"/>
+              <line x1="15" y1="135" x2="405" y2="135"/><line x1="15" y1="175" x2="405" y2="175"/>
+              <line x1="15" y1="215" x2="405" y2="215"/><line x1="15" y1="255" x2="405" y2="255"/>
+              <line x1="15" y1="295" x2="405" y2="295"/>
+              <line x1="65" y1="15" x2="65" y2="345"/><line x1="115" y1="15" x2="115" y2="345"/>
+              <line x1="165" y1="15" x2="165" y2="345"/><line x1="215" y1="15" x2="215" y2="345"/>
+              <line x1="265" y1="15" x2="265" y2="345"/><line x1="315" y1="15" x2="315" y2="345"/>
+              <line x1="365" y1="15" x2="365" y2="345"/>
             </g>
-
-            <!-- Copper traces -->
-            <g stroke="#c87833" stroke-width="2" fill="none">
-              <path d="M80 90 H180 V150 H280 V230 H330"/>
-              <path d="M130 70 V110 H230 V190 H80 V270"/>
-              <path d="M280 70 V150 H180 V230"/>
-              <path d="M80 150 H130"/>
-              <path d="M330 110 V190"/>
+            <!-- Copper traces (dim) -->
+            <g stroke="#c87833" stroke-width="1.2" fill="none" opacity="0.25">
+              <path d="M65 75 H165 V135 H265 V215 H315"/>
+              <path d="M115 55 V95 H215 V175 H65 V255"/>
+              <path d="M265 55 V135 H165 V215"/>
+              <path d="M65 135 H115"/><path d="M315 95 V175"/>
             </g>
+            <!-- Corner holes -->
+            <circle cx="38" cy="38" r="7" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.2" opacity="0.6"/>
+            <circle cx="382" cy="38" r="7" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.2" opacity="0.6"/>
+            <circle cx="38" cy="322" r="7" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.2" opacity="0.6"/>
+            <circle cx="382" cy="322" r="7" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.2" opacity="0.6"/>
+            <!-- Small SMT components (bg) -->
+            <rect x="50" y="70" width="18" height="8" rx="2" fill="#1a3020" stroke="#3d8030" stroke-width="1" opacity="0.5"/>
+            <rect x="340" y="70" width="18" height="8" rx="2" fill="#1a3020" stroke="#3d8030" stroke-width="1" opacity="0.5"/>
+            <rect x="50" y="270" width="18" height="8" rx="2" fill="#1a3020" stroke="#3d8030" stroke-width="1" opacity="0.5"/>
+            <rect x="340" y="270" width="18" height="8" rx="2" fill="#1a3020" stroke="#3d8030" stroke-width="1" opacity="0.5"/>
 
-            <!-- SMT Components -->
-            <!-- CPU/chip -->
-            <rect x="150" y="125" width="80" height="50" rx="4" fill="#1a3020" stroke="#4daa30" stroke-width="2"/>
-            <text x="190" y="155" text-anchor="middle" fill="#4daa30" font-size="10" font-family="JetBrains Mono,monospace">SMT-CPU</text>
-            <text x="190" y="167" text-anchor="middle" fill="#4daa30" font-size="7" font-family="JetBrains Mono,monospace">EV-CTRL</text>
-            <!-- chip pins -->
-            <g fill="#c87833">
-              <rect x="146" y="133" width="5" height="4" rx="1"/>
-              <rect x="146" y="143" width="5" height="4" rx="1"/>
-              <rect x="146" y="153" width="5" height="4" rx="1"/>
-              <rect x="146" y="163" width="5" height="4" rx="1"/>
-              <rect x="229" y="133" width="5" height="4" rx="1"/>
-              <rect x="229" y="143" width="5" height="4" rx="1"/>
-              <rect x="229" y="153" width="5" height="4" rx="1"/>
-              <rect x="229" y="163" width="5" height="4" rx="1"/>
-              <rect x="158" y="121" width="4" height="5" rx="1"/>
-              <rect x="168" y="121" width="4" height="5" rx="1"/>
-              <rect x="178" y="121" width="4" height="5" rx="1"/>
-              <rect x="188" y="121" width="4" height="5" rx="1"/>
-              <rect x="198" y="121" width="4" height="5" rx="1"/>
-              <rect x="208" y="121" width="4" height="5" rx="1"/>
-              <rect x="158" y="174" width="4" height="5" rx="1"/>
-              <rect x="168" y="174" width="4" height="5" rx="1"/>
-              <rect x="178" y="174" width="4" height="5" rx="1"/>
-              <rect x="188" y="174" width="4" height="5" rx="1"/>
-              <rect x="198" y="174" width="4" height="5" rx="1"/>
-              <rect x="208" y="174" width="4" height="5" rx="1"/>
-            </g>
+            <!-- ── STAKEHOLDER / PROJECT INTEGRATION OVERLAY ── -->
 
-            <!-- Capacitors -->
-            <rect x="65" y="85" width="20" height="10" rx="2" fill="#1a3020" stroke="#4daa30" stroke-width="1.5"/>
-            <rect x="65" y="100" width="20" height="10" rx="2" fill="#1a3020" stroke="#4daa30" stroke-width="1.5"/>
-            <rect x="300" y="85" width="20" height="10" rx="2" fill="#1a3020" stroke="#4daa30" stroke-width="1.5"/>
-            <rect x="300" y="100" width="20" height="10" rx="2" fill="#1a3020" stroke="#4daa30" stroke-width="1.5"/>
+            <!-- Semi-transparent dark glass panel -->
+            <rect x="30" y="28" width="360" height="305" rx="8" fill="#050d08" fill-opacity="0.72"/>
 
-            <!-- Resistors -->
-            <rect x="65" y="200" width="28" height="10" rx="3" fill="#c87833" stroke="#a06020" stroke-width="1"/>
-            <line x1="93" y1="205" x2="100" y2="205" stroke="#c87833" stroke-width="1.5"/>
-            <line x1="65" y1="205" x2="58" y2="205" stroke="#c87833" stroke-width="1.5"/>
-            <rect x="305" y="200" width="28" height="10" rx="3" fill="#c87833" stroke="#a06020" stroke-width="1"/>
+            <!-- Title -->
+            <text x="210" y="52" text-anchor="middle" fill="#4daa30" font-size="9" font-family="JetBrains Mono,monospace" letter-spacing="1.5">PRODUCT OWNER · INTEGRATION MAP</text>
+            <line x1="30" y1="60" x2="390" y2="60" stroke="#2d6b20" stroke-width="0.8" opacity="0.6"/>
 
-            <!-- LED indicators -->
-            <circle cx="80" cy="260" r="6" fill="#28c840" opacity="0.8"/>
-            <circle cx="80" cy="260" r="3" fill="#50ff70"/>
-            <circle cx="110" cy="260" r="6" fill="#28c840" opacity="0.6"/>
-            <circle cx="110" cy="260" r="3" fill="#50ff70"/>
-            <circle cx="140" cy="260" r="6" fill="#f0a500" opacity="0.8"/>
-            <circle cx="140" cy="260" r="3" fill="#ffcc30"/>
+            <!-- ── CENTER NODE: Product Owner ── -->
+            <circle cx="210" cy="175" r="34" fill="#0f2a18" stroke="#4daa30" stroke-width="2"/>
+            <circle cx="210" cy="175" r="28" fill="#0f2a18" stroke="#28c840" stroke-width="1" stroke-dasharray="4,3"/>
+            <text x="210" y="171" text-anchor="middle" fill="#28c840" font-size="9" font-weight="700" font-family="JetBrains Mono,monospace">PRODUCT</text>
+            <text x="210" y="183" text-anchor="middle" fill="#28c840" font-size="9" font-weight="700" font-family="JetBrains Mono,monospace">OWNER</text>
 
-            <!-- Corner mounting holes -->
-            <circle cx="50" cy="50" r="8" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.5"/>
-            <circle cx="370" cy="50" r="8" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.5"/>
-            <circle cx="50" cy="290" r="8" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.5"/>
-            <circle cx="370" cy="290" r="8" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.5"/>
+            <!-- ── STAKEHOLDER NODES ── -->
+            <!-- Tesla (top) -->
+            <line x1="210" y1="141" x2="210" y2="98" stroke="#4daa30" stroke-width="1.2" stroke-dasharray="3,2"/>
+            <rect x="172" y="72" width="76" height="30" rx="6" fill="#0c2010" stroke="#4daa30" stroke-width="1.2"/>
+            <text x="210" y="88" text-anchor="middle" fill="#4daa30" font-size="9" font-family="Inter,sans-serif" font-weight="600">Tesla EV</text>
+            <text x="210" y="98" text-anchor="middle" fill="#4daa30" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Cliente final</text>
 
-            <!-- KPI overlay -->
-            <rect x="270" y="210" width="100" height="70" rx="6" fill="#0a0f08" fill-opacity="0.85" stroke="#4daa30" stroke-width="1"/>
-            <text x="320" y="228" text-anchor="middle" fill="#4daa30" font-size="8" font-family="JetBrains Mono,monospace">YIELD RATE</text>
-            <text x="320" y="248" text-anchor="middle" fill="#28c840" font-size="22" font-weight="700" font-family="JetBrains Mono,monospace">99.2%</text>
-            <text x="320" y="264" text-anchor="middle" fill="#4daa30" font-size="7" font-family="JetBrains Mono,monospace">OEE · TESLA EV</text>
-            <text x="320" y="276" text-anchor="middle" fill="#4daa30" font-size="7" font-family="JetBrains Mono,monospace">PCB PRODUCTION</text>
+            <!-- Proveedores (top-left) -->
+            <line x1="179" y1="151" x2="130" y2="112" stroke="#c87833" stroke-width="1.2" stroke-dasharray="3,2"/>
+            <rect x="64" y="90" width="80" height="30" rx="6" fill="#1a100a" stroke="#c87833" stroke-width="1.2"/>
+            <text x="104" y="106" text-anchor="middle" fill="#c87833" font-size="9" font-family="Inter,sans-serif" font-weight="600">Proveedores</text>
+            <text x="104" y="116" text-anchor="middle" fill="#c87833" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Componentes SMT</text>
+
+            <!-- Ingeniería (left) -->
+            <line x1="176" y1="175" x2="122" y2="175" stroke="#4d9eff" stroke-width="1.2" stroke-dasharray="3,2"/>
+            <rect x="44" y="160" width="80" height="30" rx="6" fill="#0a0f1a" stroke="#4d9eff" stroke-width="1.2"/>
+            <text x="84" y="176" text-anchor="middle" fill="#4d9eff" font-size="9" font-family="Inter,sans-serif" font-weight="600">Ingeniería</text>
+            <text x="84" y="186" text-anchor="middle" fill="#4d9eff" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Diseño &amp; calidad</text>
+
+            <!-- Manufactura (bottom-left) -->
+            <line x1="181" y1="198" x2="133" y2="234" stroke="#9b6ed0" stroke-width="1.2" stroke-dasharray="3,2"/>
+            <rect x="64" y="222" width="80" height="30" rx="6" fill="#130f1e" stroke="#9b6ed0" stroke-width="1.2"/>
+            <text x="104" y="238" text-anchor="middle" fill="#9b6ed0" font-size="9" font-family="Inter,sans-serif" font-weight="600">Manufactura</text>
+            <text x="104" y="248" text-anchor="middle" fill="#9b6ed0" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Línea SMT</text>
+
+            <!-- Calidad (bottom) -->
+            <line x1="210" y1="209" x2="210" y2="248" stroke="#f0a500" stroke-width="1.2" stroke-dasharray="3,2"/>
+            <rect x="168" y="248" width="84" height="30" rx="6" fill="#1a1100" stroke="#f0a500" stroke-width="1.2"/>
+            <text x="210" y="264" text-anchor="middle" fill="#f0a500" font-size="9" font-family="Inter,sans-serif" font-weight="600">QA / QC</text>
+            <text x="210" y="274" text-anchor="middle" fill="#f0a500" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Root cause · KPI</text>
+
+            <!-- Stakeholders (top-right) -->
+            <line x1="241" y1="151" x2="286" y2="112" stroke="#28c840" stroke-width="1.2" stroke-dasharray="3,2"/>
+            <rect x="272" y="90" width="86" height="30" rx="6" fill="#0a180f" stroke="#28c840" stroke-width="1.2"/>
+            <text x="315" y="106" text-anchor="middle" fill="#28c840" font-size="9" font-family="Inter,sans-serif" font-weight="600">Stakeholders</text>
+            <text x="315" y="116" text-anchor="middle" fill="#28c840" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Reqs &amp; roadmap</text>
+
+            <!-- Datos / BI (right) -->
+            <line x1="244" y1="175" x2="298" y2="175" stroke="#4d9eff" stroke-width="1.2" stroke-dasharray="3,2"/>
+            <rect x="296" y="160" width="80" height="30" rx="6" fill="#0a0f1a" stroke="#4d9eff" stroke-width="1.2"/>
+            <text x="336" y="176" text-anchor="middle" fill="#4d9eff" font-size="9" font-family="Inter,sans-serif" font-weight="600">Datos / BI</text>
+            <text x="336" y="186" text-anchor="middle" fill="#4d9eff" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Power BI · Python</text>
+
+            <!-- Mejora continua (bottom-right) -->
+            <line x1="238" y1="199" x2="283" y2="234" stroke="#c87833" stroke-width="1.2" stroke-dasharray="3,2"/>
+            <rect x="270" y="222" width="90" height="30" rx="6" fill="#1a100a" stroke="#c87833" stroke-width="1.2"/>
+            <text x="315" y="238" text-anchor="middle" fill="#c87833" font-size="9" font-family="Inter,sans-serif" font-weight="600">Mejora Continua</text>
+            <text x="315" y="248" text-anchor="middle" fill="#c87833" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Lean · Six Sigma</text>
+
+            <!-- ── KPI STRIP (bottom) ── -->
+            <rect x="30" y="295" width="360" height="34" rx="6" fill="#050d08" stroke="#2d6b20" stroke-width="0.8"/>
+            <text x="90" y="309" text-anchor="middle" fill="#8899aa" font-size="7" font-family="JetBrains Mono,monospace">YIELD</text>
+            <text x="90" y="322" text-anchor="middle" fill="#28c840" font-size="11" font-weight="700" font-family="JetBrains Mono,monospace">99.2%</text>
+            <line x1="140" y1="298" x2="140" y2="326" stroke="#2d6b20" stroke-width="0.8"/>
+            <text x="210" y="309" text-anchor="middle" fill="#8899aa" font-size="7" font-family="JetBrains Mono,monospace">PROVEEDORES</text>
+            <text x="210" y="322" text-anchor="middle" fill="#c87833" font-size="11" font-weight="700" font-family="JetBrains Mono,monospace">12+ activos</text>
+            <line x1="280" y1="298" x2="280" y2="326" stroke="#2d6b20" stroke-width="0.8"/>
+            <text x="350" y="309" text-anchor="middle" fill="#8899aa" font-size="7" font-family="JetBrains Mono,monospace">OEE TARGET</text>
+            <text x="350" y="322" text-anchor="middle" fill="#4d9eff" font-size="11" font-weight="700" font-family="JetBrains Mono,monospace">&gt;95%</text>
           </svg>
         </div>
 
@@ -363,16 +382,16 @@
           <div class="exp-company-tag">Quanta México · Monterrey</div>
           <h2 class="exp-title">SMT Manufacturing<br>Engineer</h2>
           <p class="exp-desc">
-            Manufactura de PCBs para vehículos eléctricos Tesla. Operaciones SMT, coordinación con proveedores y mejora continua de rendimiento en una línea de alta producción.
+            Manufactura de PCBs para vehículos eléctricos Tesla. Rol híbrido de ingeniero de manufactura y Product Owner: dueño del producto entre proveedores, equipos internos y stakeholders de negocio.
           </p>
           <ul class="exp-highlights">
-            <li>KPI monitoring y root cause analysis de defectos en línea SMT</li>
-            <li>Lean Manufacturing y Six Sigma para reducción de downtime</li>
-            <li>Power BI dashboards para tracking de OEE y rendimiento de equipos</li>
-            <li>Python automation para inspección y análisis de datos de producción</li>
+            <li>Product Owner de mejoras de proceso: definición de requerimientos, roadmap y seguimiento con stakeholders internacionales</li>
+            <li>Coordinación con 12+ proveedores de componentes SMT — gestión de SLAs, escalaciones y auditorías técnicas</li>
+            <li>KPI monitoring, root cause analysis y reducción de downtime con Lean Manufacturing y Six Sigma</li>
+            <li>Power BI dashboards para OEE y rendimiento de equipos; Python automation para inspección de producción</li>
           </ul>
           <div class="exp-stack">
-            <span>Python</span><span>Power BI</span><span>Lean</span><span>Six Sigma</span><span>SMT</span><span>OEE</span>
+            <span>Product Owner</span><span>Python</span><span>Power BI</span><span>Lean</span><span>Six Sigma</span><span>SMT</span><span>OEE</span>
           </div>
         </div>
       </div>
@@ -463,7 +482,7 @@
       <div class="about-text">
         <h2 class="about-heading">Datos + Aviación<br><span class="about-heading-accent">+ Inteligencia Artificial</span></h2>
         <p>
-          Soy de Taxco, Guerrero, viviendo en Monterrey. Estudié Mecatrónica porque quería entender cómo funcionan los sistemas complejos — hardware, software y control en un solo proyecto. Hoy hago algo parecido, pero con datos: entender cómo funciona una aerolínea a través de sus números.
+          Soy de Taxco Guerrero, viviendo en Monterrey. Estudié Mecatrónica porque quería entender cómo funcionan los sistemas complejos — hardware, software y control en un solo proyecto. Hoy hago algo parecido, pero con datos: entender cómo funciona una aerolínea a través de sus números.
         </p>
         <p>
           Actualmente finalicé la Maestría en IA Aplicada en el Tec de Monterrey, combinando ML aplicado con el contexto operacional de Flight Ops. Mi objetivo es construir sistemas que no solo analicen el pasado, sino que anticipen fallas y optimicen decisiones en tiempo real.

@@ -34,9 +34,9 @@ function randDrift(base, range, decimals) {
 }
 
 function tickHud() {
-  if (hudAlt)  hudAlt.textContent  = randDrift(33500, 200, 0).replace(',', ',');
-  if (hudHdg)  hudHdg.textContent  = String(randDrift(184, 4, 0)).padStart(3, '0');
-  if (hudSpd)  hudSpd.textContent  = randDrift(412, 6, 0);
+  if (hudAlt)  hudAlt.textContent  = (33500 + Math.round((Math.random()-0.5)*200)).toLocaleString();
+  if (hudHdg)  hudHdg.textContent  = String(Math.round(184 + (Math.random()-0.5)*4)).padStart(3,'0');
+  if (hudSpd)  hudSpd.textContent  = Math.round(412 + (Math.random()-0.5)*6);
   if (hudBtr)  hudBtr.textContent  = randDrift(97.4, 0.3, 1);
   if (hudOtp)  hudOtp.textContent  = randDrift(88.2, 0.4, 1);
   if (hudFuel) hudFuel.textContent = randDrift(98.1, 0.2, 1);
@@ -45,22 +45,44 @@ function tickHud() {
 setInterval(tickHud, 1800);
 
 /* =====================
-   INTERSECTION OBSERVER
-   - Reveal elements
-   - Animate skill bars
-   - Animate SVGs
+   UNIVERSAL REVEAL HELPER
+   Marks element visible immediately if already
+   in viewport, otherwise uses IntersectionObserver
    ===================== */
+function makeVisible(el) {
+  el.classList.add('visible');
+}
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
+function observeReveal(elements, options = {}) {
+  const opts = {
+    threshold: 0.08,
+    rootMargin: '0px 0px -60px 0px',
+    ...options
+  };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        makeVisible(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, opts);
+
+  elements.forEach(el => {
+    // If already in viewport on load, show immediately
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      // slight delay so CSS transition fires
+      setTimeout(() => makeVisible(el), 100);
+    } else {
+      io.observe(el);
     }
   });
-}, { threshold: 0.12 });
+}
 
-// Add .reveal class to selected elements and observe
+/* =====================
+   REVEAL: general elements
+   ===================== */
 const revealTargets = [
   ...document.querySelectorAll('.exp-block'),
   ...document.querySelectorAll('.edu-item'),
@@ -68,37 +90,32 @@ const revealTargets = [
   ...document.querySelectorAll('.about-text'),
   ...document.querySelectorAll('.about-edu'),
 ];
-revealTargets.forEach(el => {
-  el.classList.add('reveal');
-  revealObserver.observe(el);
-});
+revealTargets.forEach(el => el.classList.add('reveal'));
+observeReveal(revealTargets);
 
-// SVG illustrations
-const svgObserver = new IntersectionObserver((entries) => {
+/* =====================
+   REVEAL: SVG illustrations
+   ===================== */
+const svgs = [...document.querySelectorAll('.exp-svg')];
+observeReveal(svgs, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+/* =====================
+   SKILL BARS: animate width
+   ===================== */
+const skillSections = [...document.querySelectorAll('.skills-categories')];
+const barIO = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      svgObserver.unobserve(entry.target);
+      entry.target.querySelectorAll('.skill-fill').forEach((fill, i) => {
+        setTimeout(() => {
+          fill.style.width = fill.dataset.w + '%';
+        }, i * 80);
+      });
+      barIO.unobserve(entry.target);
     }
   });
 }, { threshold: 0.2 });
-
-document.querySelectorAll('.exp-svg').forEach(svg => svgObserver.observe(svg));
-
-// Skill bars
-const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.skill-fill').forEach(fill => {
-        const w = fill.dataset.w;
-        setTimeout(() => { fill.style.width = w + '%'; }, 100);
-      });
-      barObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-
-document.querySelectorAll('.skills-categories').forEach(el => barObserver.observe(el));
+skillSections.forEach(el => barIO.observe(el));
 
 /* =====================
    SMOOTH SCROLL offset

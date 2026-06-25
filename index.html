@@ -267,114 +267,253 @@
 
       <div class="exp-main">
         <div class="exp-visual" id="vis-quanta">
-          <!-- SVG: PCB base + stakeholder integration overlay -->
-          <svg viewBox="0 0 420 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="exp-svg">
+          <!-- SVG: Full PCB with components + semi-transparent stakeholder overlay -->
+          <svg viewBox="0 0 420 370" fill="none" xmlns="http://www.w3.org/2000/svg" class="exp-svg">
 
-            <!-- ── PCB BACKGROUND (dimmed) ── -->
-            <rect x="15" y="15" width="390" height="330" rx="8" fill="#0d2010" stroke="#2d6b20" stroke-width="1.5"/>
+            <!-- ══════════════════════════════
+                 LAYER 1: PCB BOARD FULL
+                 ══════════════════════════════ -->
+            <rect x="10" y="10" width="400" height="350" rx="8" fill="#0d2010" stroke="#3d8030" stroke-width="2"/>
+
+            <!-- Silkscreen border -->
+            <rect x="22" y="22" width="376" height="326" rx="4" fill="none" stroke="#2d6b20" stroke-width="0.6" stroke-dasharray="6,4"/>
+
             <!-- PCB grid -->
-            <g opacity="0.18" stroke="#2d6b20" stroke-width="0.5">
-              <line x1="15" y1="55" x2="405" y2="55"/><line x1="15" y1="95" x2="405" y2="95"/>
-              <line x1="15" y1="135" x2="405" y2="135"/><line x1="15" y1="175" x2="405" y2="175"/>
-              <line x1="15" y1="215" x2="405" y2="215"/><line x1="15" y1="255" x2="405" y2="255"/>
-              <line x1="15" y1="295" x2="405" y2="295"/>
-              <line x1="65" y1="15" x2="65" y2="345"/><line x1="115" y1="15" x2="115" y2="345"/>
-              <line x1="165" y1="15" x2="165" y2="345"/><line x1="215" y1="15" x2="215" y2="345"/>
-              <line x1="265" y1="15" x2="265" y2="345"/><line x1="315" y1="15" x2="315" y2="345"/>
-              <line x1="365" y1="15" x2="365" y2="345"/>
+            <g opacity="0.22" stroke="#2d6b20" stroke-width="0.4">
+              <line x1="10" y1="50" x2="410" y2="50"/><line x1="10" y1="90" x2="410" y2="90"/>
+              <line x1="10" y1="130" x2="410" y2="130"/><line x1="10" y1="170" x2="410" y2="170"/>
+              <line x1="10" y1="210" x2="410" y2="210"/><line x1="10" y1="250" x2="410" y2="250"/>
+              <line x1="10" y1="290" x2="410" y2="290"/><line x1="10" y1="330" x2="410" y2="330"/>
+              <line x1="50" y1="10" x2="50" y2="360"/><line x1="90" y1="10" x2="90" y2="360"/>
+              <line x1="130" y1="10" x2="130" y2="360"/><line x1="170" y1="10" x2="170" y2="360"/>
+              <line x1="210" y1="10" x2="210" y2="360"/><line x1="250" y1="10" x2="250" y2="360"/>
+              <line x1="290" y1="10" x2="290" y2="360"/><line x1="330" y1="10" x2="330" y2="360"/>
+              <line x1="370" y1="10" x2="370" y2="360"/>
             </g>
-            <!-- Copper traces (dim) -->
-            <g stroke="#c87833" stroke-width="1.2" fill="none" opacity="0.25">
-              <path d="M65 75 H165 V135 H265 V215 H315"/>
-              <path d="M115 55 V95 H215 V175 H65 V255"/>
-              <path d="M265 55 V135 H165 V215"/>
-              <path d="M65 135 H115"/><path d="M315 95 V175"/>
+
+            <!-- Copper traces -->
+            <g stroke="#c87833" stroke-width="1.8" fill="none" opacity="0.85">
+              <path d="M50 60 H130 V90 H250 V130"/>
+              <path d="M90 40 V90 H170 V130 H90 V250"/>
+              <path d="M330 60 V130 H250 V210"/>
+              <path d="M50 170 H90"/><path d="M330 210 V290 H210 V330 H130"/>
+              <path d="M170 290 H210"/><path d="M370 90 V170 H330"/>
+              <path d="M50 310 H90 V330 H130"/>
+              <path d="M370 250 V290"/>
             </g>
-            <!-- Corner holes -->
-            <circle cx="38" cy="38" r="7" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.2" opacity="0.6"/>
-            <circle cx="382" cy="38" r="7" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.2" opacity="0.6"/>
-            <circle cx="38" cy="322" r="7" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.2" opacity="0.6"/>
-            <circle cx="382" cy="322" r="7" fill="#0a1a08" stroke="#2d6b20" stroke-width="1.2" opacity="0.6"/>
-            <!-- Small SMT components (bg) -->
-            <rect x="50" y="70" width="18" height="8" rx="2" fill="#1a3020" stroke="#3d8030" stroke-width="1" opacity="0.5"/>
-            <rect x="340" y="70" width="18" height="8" rx="2" fill="#1a3020" stroke="#3d8030" stroke-width="1" opacity="0.5"/>
-            <rect x="50" y="270" width="18" height="8" rx="2" fill="#1a3020" stroke="#3d8030" stroke-width="1" opacity="0.5"/>
-            <rect x="340" y="270" width="18" height="8" rx="2" fill="#1a3020" stroke="#3d8030" stroke-width="1" opacity="0.5"/>
 
-            <!-- ── STAKEHOLDER / PROJECT INTEGRATION OVERLAY ── -->
+            <!-- Via holes on traces -->
+            <g fill="#c87833" opacity="0.9">
+              <circle cx="130" cy="90" r="3"/><circle cx="250" cy="130" r="3"/>
+              <circle cx="90" cy="130" r="3"/><circle cx="330" cy="130" r="3"/>
+              <circle cx="210" cy="210" r="3"/><circle cx="210" cy="290" r="3"/>
+              <circle cx="330" cy="210" r="3"/><circle cx="130" cy="290" r="3"/>
+            </g>
 
-            <!-- Semi-transparent dark glass panel -->
-            <rect x="30" y="28" width="360" height="305" rx="8" fill="#050d08" fill-opacity="0.72"/>
+            <!-- Corner mounting holes -->
+            <circle cx="34" cy="34" r="9" fill="#0a1a08" stroke="#4daa30" stroke-width="1.5"/>
+            <circle cx="386" cy="34" r="9" fill="#0a1a08" stroke="#4daa30" stroke-width="1.5"/>
+            <circle cx="34" cy="336" r="9" fill="#0a1a08" stroke="#4daa30" stroke-width="1.5"/>
+            <circle cx="386" cy="336" r="9" fill="#0a1a08" stroke="#4daa30" stroke-width="1.5"/>
+            <circle cx="34" cy="34" r="4" fill="#071008" stroke="#2d6b20" stroke-width="0.8"/>
+            <circle cx="386" cy="34" r="4" fill="#071008" stroke="#2d6b20" stroke-width="0.8"/>
+            <circle cx="34" cy="336" r="4" fill="#071008" stroke="#2d6b20" stroke-width="0.8"/>
+            <circle cx="386" cy="336" r="4" fill="#071008" stroke="#2d6b20" stroke-width="0.8"/>
 
-            <!-- Title -->
-            <text x="210" y="52" text-anchor="middle" fill="#4daa30" font-size="9" font-family="JetBrains Mono,monospace" letter-spacing="1.5">PRODUCT OWNER · INTEGRATION MAP</text>
-            <line x1="30" y1="60" x2="390" y2="60" stroke="#2d6b20" stroke-width="0.8" opacity="0.6"/>
+            <!-- ── MAIN CPU / MCU chip (top-left area) ── -->
+            <rect x="42" y="98" width="56" height="56" rx="3" fill="#112218" stroke="#4daa30" stroke-width="1.8"/>
+            <!-- cpu pins top -->
+            <rect x="50" y="94" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="58" y="94" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="66" y="94" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="74" y="94" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="82" y="94" width="4" height="6" rx="1" fill="#c87833"/>
+            <!-- cpu pins bottom -->
+            <rect x="50" y="152" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="58" y="152" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="66" y="152" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="74" y="152" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="82" y="152" width="4" height="6" rx="1" fill="#c87833"/>
+            <!-- cpu pins left -->
+            <rect x="37" y="106" width="6" height="4" rx="1" fill="#c87833"/>
+            <rect x="37" y="116" width="6" height="4" rx="1" fill="#c87833"/>
+            <rect x="37" y="126" width="6" height="4" rx="1" fill="#c87833"/>
+            <rect x="37" y="136" width="6" height="4" rx="1" fill="#c87833"/>
+            <!-- cpu pins right -->
+            <rect x="97" y="106" width="6" height="4" rx="1" fill="#c87833"/>
+            <rect x="97" y="116" width="6" height="4" rx="1" fill="#c87833"/>
+            <rect x="97" y="126" width="6" height="4" rx="1" fill="#c87833"/>
+            <rect x="97" y="136" width="6" height="4" rx="1" fill="#c87833"/>
+            <text x="70" y="123" text-anchor="middle" fill="#4daa30" font-size="7" font-family="JetBrains Mono,monospace">MCU</text>
+            <text x="70" y="133" text-anchor="middle" fill="#4daa30" font-size="6" font-family="JetBrains Mono,monospace">EV-CTRL</text>
+            <text x="70" y="143" text-anchor="middle" fill="#3d8030" font-size="5.5" font-family="JetBrains Mono,monospace">SMT-CPU</text>
 
-            <!-- ── CENTER NODE: Product Owner ── -->
-            <circle cx="210" cy="175" r="34" fill="#0f2a18" stroke="#4daa30" stroke-width="2"/>
-            <circle cx="210" cy="175" r="28" fill="#0f2a18" stroke="#28c840" stroke-width="1" stroke-dasharray="4,3"/>
-            <text x="210" y="171" text-anchor="middle" fill="#28c840" font-size="9" font-weight="700" font-family="JetBrains Mono,monospace">PRODUCT</text>
-            <text x="210" y="183" text-anchor="middle" fill="#28c840" font-size="9" font-weight="700" font-family="JetBrains Mono,monospace">OWNER</text>
+            <!-- ── POWER IC (bottom-right) ── -->
+            <rect x="318" y="250" width="52" height="52" rx="3" fill="#112218" stroke="#4daa30" stroke-width="1.5"/>
+            <rect x="326" y="246" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="336" y="246" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="346" y="246" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="356" y="246" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="326" y="300" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="336" y="300" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="346" y="300" width="4" height="6" rx="1" fill="#c87833"/>
+            <rect x="314" y="258" width="6" height="4" rx="1" fill="#c87833"/>
+            <rect x="314" y="268" width="6" height="4" rx="1" fill="#c87833"/>
+            <rect x="314" y="278" width="6" height="4" rx="1" fill="#c87833"/>
+            <rect x="368" y="258" width="6" height="4" rx="1" fill="#c87833"/>
+            <rect x="368" y="268" width="6" height="4" rx="1" fill="#c87833"/>
+            <text x="344" y="273" text-anchor="middle" fill="#4daa30" font-size="7" font-family="JetBrains Mono,monospace">PWR</text>
+            <text x="344" y="283" text-anchor="middle" fill="#4daa30" font-size="6" font-family="JetBrains Mono,monospace">REG-IC</text>
 
-            <!-- ── STAKEHOLDER NODES ── -->
-            <!-- Tesla (top) -->
-            <line x1="210" y1="141" x2="210" y2="98" stroke="#4daa30" stroke-width="1.2" stroke-dasharray="3,2"/>
-            <rect x="172" y="72" width="76" height="30" rx="6" fill="#0c2010" stroke="#4daa30" stroke-width="1.2"/>
-            <text x="210" y="88" text-anchor="middle" fill="#4daa30" font-size="9" font-family="Inter,sans-serif" font-weight="600">Tesla EV</text>
-            <text x="210" y="98" text-anchor="middle" fill="#4daa30" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Cliente final</text>
+            <!-- ── Capacitors (electrolytic, tall) ── -->
+            <ellipse cx="148" cy="52" rx="10" ry="12" fill="#1a3020" stroke="#4daa30" stroke-width="1.2"/>
+            <line x1="148" y1="42" x2="148" y2="48" stroke="#4daa30" stroke-width="1.5"/>
+            <text x="148" y="56" text-anchor="middle" fill="#4daa30" font-size="5" font-family="JetBrains Mono,monospace">100µ</text>
+            <ellipse cx="172" cy="52" rx="10" ry="12" fill="#1a3020" stroke="#4daa30" stroke-width="1.2"/>
+            <line x1="172" y1="42" x2="172" y2="48" stroke="#4daa30" stroke-width="1.5"/>
+            <text x="172" y="56" text-anchor="middle" fill="#4daa30" font-size="5" font-family="JetBrains Mono,monospace">47µ</text>
 
-            <!-- Proveedores (top-left) -->
-            <line x1="179" y1="151" x2="130" y2="112" stroke="#c87833" stroke-width="1.2" stroke-dasharray="3,2"/>
-            <rect x="64" y="90" width="80" height="30" rx="6" fill="#1a100a" stroke="#c87833" stroke-width="1.2"/>
-            <text x="104" y="106" text-anchor="middle" fill="#c87833" font-size="9" font-family="Inter,sans-serif" font-weight="600">Proveedores</text>
-            <text x="104" y="116" text-anchor="middle" fill="#c87833" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Componentes SMT</text>
+            <!-- ── Capacitors (ceramic, small) ── -->
+            <rect x="268" y="46" width="14" height="8" rx="2" fill="#1a3020" stroke="#4daa30" stroke-width="1"/>
+            <line x1="268" y1="50" x2="263" y2="50" stroke="#c87833" stroke-width="1.2"/>
+            <line x1="282" y1="50" x2="287" y2="50" stroke="#c87833" stroke-width="1.2"/>
+            <rect x="296" y="46" width="14" height="8" rx="2" fill="#1a3020" stroke="#4daa30" stroke-width="1"/>
+            <line x1="296" y1="50" x2="291" y2="50" stroke="#c87833" stroke-width="1.2"/>
+            <line x1="310" y1="50" x2="315" y2="50" stroke="#c87833" stroke-width="1.2"/>
 
-            <!-- Ingeniería (left) -->
-            <line x1="176" y1="175" x2="122" y2="175" stroke="#4d9eff" stroke-width="1.2" stroke-dasharray="3,2"/>
-            <rect x="44" y="160" width="80" height="30" rx="6" fill="#0a0f1a" stroke="#4d9eff" stroke-width="1.2"/>
-            <text x="84" y="176" text-anchor="middle" fill="#4d9eff" font-size="9" font-family="Inter,sans-serif" font-weight="600">Ingeniería</text>
-            <text x="84" y="186" text-anchor="middle" fill="#4d9eff" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Diseño &amp; calidad</text>
+            <!-- ── Resistor array (right side) ── -->
+            <rect x="358" y="108" width="26" height="9" rx="2" fill="#2a1a08" stroke="#c87833" stroke-width="1"/>
+            <line x1="358" y1="112" x2="353" y2="112" stroke="#c87833" stroke-width="1.2"/>
+            <line x1="384" y1="112" x2="389" y2="112" stroke="#c87833" stroke-width="1.2"/>
+            <rect x="358" y="122" width="26" height="9" rx="2" fill="#2a1a08" stroke="#c87833" stroke-width="1"/>
+            <line x1="358" y1="126" x2="353" y2="126" stroke="#c87833" stroke-width="1.2"/>
+            <line x1="384" y1="126" x2="389" y2="126" stroke="#c87833" stroke-width="1.2"/>
+            <rect x="358" y="136" width="26" height="9" rx="2" fill="#2a1a08" stroke="#c87833" stroke-width="1"/>
+            <line x1="358" y1="140" x2="353" y2="140" stroke="#c87833" stroke-width="1.2"/>
+            <line x1="384" y1="140" x2="389" y2="140" stroke="#c87833" stroke-width="1.2"/>
 
-            <!-- Manufactura (bottom-left) -->
-            <line x1="181" y1="198" x2="133" y2="234" stroke="#9b6ed0" stroke-width="1.2" stroke-dasharray="3,2"/>
-            <rect x="64" y="222" width="80" height="30" rx="6" fill="#130f1e" stroke="#9b6ed0" stroke-width="1.2"/>
-            <text x="104" y="238" text-anchor="middle" fill="#9b6ed0" font-size="9" font-family="Inter,sans-serif" font-weight="600">Manufactura</text>
-            <text x="104" y="248" text-anchor="middle" fill="#9b6ed0" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Línea SMT</text>
+            <!-- ── Inductor (bottom-left) ── -->
+            <rect x="42" y="258" width="32" height="16" rx="3" fill="#1a2a10" stroke="#4daa30" stroke-width="1.2"/>
+            <path d="M48 266 Q52 260 56 266 Q60 272 64 266 Q68 260 72 266" stroke="#4daa30" stroke-width="1" fill="none"/>
+            <line x1="42" y1="266" x2="37" y2="266" stroke="#c87833" stroke-width="1.2"/>
+            <line x1="74" y1="266" x2="79" y2="266" stroke="#c87833" stroke-width="1.2"/>
 
-            <!-- Calidad (bottom) -->
-            <line x1="210" y1="209" x2="210" y2="248" stroke="#f0a500" stroke-width="1.2" stroke-dasharray="3,2"/>
-            <rect x="168" y="248" width="84" height="30" rx="6" fill="#1a1100" stroke="#f0a500" stroke-width="1.2"/>
-            <text x="210" y="264" text-anchor="middle" fill="#f0a500" font-size="9" font-family="Inter,sans-serif" font-weight="600">QA / QC</text>
-            <text x="210" y="274" text-anchor="middle" fill="#f0a500" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Root cause · KPI</text>
+            <!-- ── Connector (bottom edge) ── -->
+            <rect x="148" y="342" width="114" height="16" rx="2" fill="#1a2a10" stroke="#4daa30" stroke-width="1.2"/>
+            <g fill="#c87833">
+              <rect x="154" y="346" width="5" height="8" rx="1"/>
+              <rect x="164" y="346" width="5" height="8" rx="1"/>
+              <rect x="174" y="346" width="5" height="8" rx="1"/>
+              <rect x="184" y="346" width="5" height="8" rx="1"/>
+              <rect x="194" y="346" width="5" height="8" rx="1"/>
+              <rect x="204" y="346" width="5" height="8" rx="1"/>
+              <rect x="214" y="346" width="5" height="8" rx="1"/>
+              <rect x="224" y="346" width="5" height="8" rx="1"/>
+              <rect x="234" y="346" width="5" height="8" rx="1"/>
+              <rect x="244" y="346" width="5" height="8" rx="1"/>
+            </g>
+            <text x="205" y="357" text-anchor="middle" fill="#4daa30" font-size="6" font-family="JetBrains Mono,monospace">J1 · EV BUS CONNECTOR</text>
 
-            <!-- Stakeholders (top-right) -->
-            <line x1="241" y1="151" x2="286" y2="112" stroke="#28c840" stroke-width="1.2" stroke-dasharray="3,2"/>
-            <rect x="272" y="90" width="86" height="30" rx="6" fill="#0a180f" stroke="#28c840" stroke-width="1.2"/>
-            <text x="315" y="106" text-anchor="middle" fill="#28c840" font-size="9" font-family="Inter,sans-serif" font-weight="600">Stakeholders</text>
-            <text x="315" y="116" text-anchor="middle" fill="#28c840" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Reqs &amp; roadmap</text>
+            <!-- ── LEDs (status row) ── -->
+            <circle cx="134" cy="316" r="5" fill="#0a2a0a" stroke="#4daa30" stroke-width="1"/>
+            <circle cx="134" cy="316" r="3" fill="#28c840" opacity="0.9"/>
+            <circle cx="150" cy="316" r="5" fill="#0a2a0a" stroke="#4daa30" stroke-width="1"/>
+            <circle cx="150" cy="316" r="3" fill="#28c840" opacity="0.6"/>
+            <circle cx="166" cy="316" r="5" fill="#1a1000" stroke="#c87833" stroke-width="1"/>
+            <circle cx="166" cy="316" r="3" fill="#f0a500" opacity="0.85"/>
+            <text x="134" y="328" text-anchor="middle" fill="#3d8030" font-size="5" font-family="JetBrains Mono,monospace">PWR</text>
+            <text x="150" y="328" text-anchor="middle" fill="#3d8030" font-size="5" font-family="JetBrains Mono,monospace">RUN</text>
+            <text x="166" y="328" text-anchor="middle" fill="#a06010" font-size="5" font-family="JetBrains Mono,monospace">ERR</text>
 
-            <!-- Datos / BI (right) -->
-            <line x1="244" y1="175" x2="298" y2="175" stroke="#4d9eff" stroke-width="1.2" stroke-dasharray="3,2"/>
-            <rect x="296" y="160" width="80" height="30" rx="6" fill="#0a0f1a" stroke="#4d9eff" stroke-width="1.2"/>
-            <text x="336" y="176" text-anchor="middle" fill="#4d9eff" font-size="9" font-family="Inter,sans-serif" font-weight="600">Datos / BI</text>
-            <text x="336" y="186" text-anchor="middle" fill="#4d9eff" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Power BI · Python</text>
+            <!-- ── Silkscreen labels ── -->
+            <text x="42" y="96" fill="#3d6030" font-size="6" font-family="JetBrains Mono,monospace" opacity="0.7">U1</text>
+            <text x="318" y="248" fill="#3d6030" font-size="6" font-family="JetBrains Mono,monospace" opacity="0.7">U2</text>
+            <text x="140" y="44" fill="#3d6030" font-size="6" font-family="JetBrains Mono,monospace" opacity="0.7">C1 C2</text>
+            <text x="266" y="44" fill="#3d6030" font-size="6" font-family="JetBrains Mono,monospace" opacity="0.7">C3 C4</text>
+            <text x="356" y="106" fill="#3d6030" font-size="6" font-family="JetBrains Mono,monospace" opacity="0.7">R1</text>
+            <text x="42" y="256" fill="#3d6030" font-size="6" font-family="JetBrains Mono,monospace" opacity="0.7">L1</text>
 
-            <!-- Mejora continua (bottom-right) -->
-            <line x1="238" y1="199" x2="283" y2="234" stroke="#c87833" stroke-width="1.2" stroke-dasharray="3,2"/>
-            <rect x="270" y="222" width="90" height="30" rx="6" fill="#1a100a" stroke="#c87833" stroke-width="1.2"/>
-            <text x="315" y="238" text-anchor="middle" fill="#c87833" font-size="9" font-family="Inter,sans-serif" font-weight="600">Mejora Continua</text>
-            <text x="315" y="248" text-anchor="middle" fill="#c87833" font-size="7" font-family="Inter,sans-serif" opacity="0.8">Lean · Six Sigma</text>
+            <!-- ══════════════════════════════
+                 LAYER 2: STAKEHOLDER OVERLAY
+                 (semi-transparent glass)
+                 ══════════════════════════════ -->
 
-            <!-- ── KPI STRIP (bottom) ── -->
-            <rect x="30" y="295" width="360" height="34" rx="6" fill="#050d08" stroke="#2d6b20" stroke-width="0.8"/>
-            <text x="90" y="309" text-anchor="middle" fill="#8899aa" font-size="7" font-family="JetBrains Mono,monospace">YIELD</text>
-            <text x="90" y="322" text-anchor="middle" fill="#28c840" font-size="11" font-weight="700" font-family="JetBrains Mono,monospace">99.2%</text>
-            <line x1="140" y1="298" x2="140" y2="326" stroke="#2d6b20" stroke-width="0.8"/>
-            <text x="210" y="309" text-anchor="middle" fill="#8899aa" font-size="7" font-family="JetBrains Mono,monospace">PROVEEDORES</text>
-            <text x="210" y="322" text-anchor="middle" fill="#c87833" font-size="11" font-weight="700" font-family="JetBrains Mono,monospace">12+ activos</text>
-            <line x1="280" y1="298" x2="280" y2="326" stroke="#2d6b20" stroke-width="0.8"/>
-            <text x="350" y="309" text-anchor="middle" fill="#8899aa" font-size="7" font-family="JetBrains Mono,monospace">OEE TARGET</text>
-            <text x="350" y="322" text-anchor="middle" fill="#4d9eff" font-size="11" font-weight="700" font-family="JetBrains Mono,monospace">&gt;95%</text>
+            <!-- Glass panel — more transparent so PCB shows through -->
+            <rect x="108" y="72" width="204" height="210" rx="10" fill="#030a05" fill-opacity="0.78" stroke="#4daa30" stroke-width="1" stroke-dasharray="5,3"/>
+
+            <!-- Overlay title -->
+            <text x="210" y="92" text-anchor="middle" fill="#4daa30" font-size="8" font-family="JetBrains Mono,monospace" letter-spacing="1">PO · INTEGRATION</text>
+
+            <!-- Center node -->
+            <circle cx="210" cy="182" r="28" fill="#0f2a18" fill-opacity="0.92" stroke="#4daa30" stroke-width="2"/>
+            <circle cx="210" cy="182" r="22" fill="none" stroke="#28c840" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <text x="210" y="178" text-anchor="middle" fill="#28c840" font-size="8" font-weight="700" font-family="JetBrains Mono,monospace">PROD.</text>
+            <text x="210" y="189" text-anchor="middle" fill="#28c840" font-size="8" font-weight="700" font-family="JetBrains Mono,monospace">OWNER</text>
+
+            <!-- Lines to nodes -->
+            <line x1="210" y1="154" x2="210" y2="120" stroke="#4daa30" stroke-width="1" stroke-dasharray="3,2" opacity="0.9"/>
+            <line x1="184" y1="162" x2="155" y2="136" stroke="#c87833" stroke-width="1" stroke-dasharray="3,2" opacity="0.9"/>
+            <line x1="182" y1="182" x2="148" y2="182" stroke="#4d9eff" stroke-width="1" stroke-dasharray="3,2" opacity="0.9"/>
+            <line x1="185" y1="202" x2="156" y2="228" stroke="#9b6ed0" stroke-width="1" stroke-dasharray="3,2" opacity="0.9"/>
+            <line x1="210" y1="210" x2="210" y2="244" stroke="#f0a500" stroke-width="1" stroke-dasharray="3,2" opacity="0.9"/>
+            <line x1="236" y1="162" x2="264" y2="136" stroke="#28c840" stroke-width="1" stroke-dasharray="3,2" opacity="0.9"/>
+            <line x1="238" y1="182" x2="272" y2="182" stroke="#4d9eff" stroke-width="1" stroke-dasharray="3,2" opacity="0.9"/>
+            <line x1="235" y1="202" x2="262" y2="228" stroke="#c87833" stroke-width="1" stroke-dasharray="3,2" opacity="0.9"/>
+
+            <!-- Stakeholder nodes (compact) -->
+            <!-- Tesla EV top -->
+            <rect x="174" y="104" width="72" height="22" rx="5" fill="#0c2010" fill-opacity="0.95" stroke="#4daa30" stroke-width="1.2"/>
+            <text x="210" y="116" text-anchor="middle" fill="#4daa30" font-size="8" font-family="Inter,sans-serif" font-weight="600">Tesla EV</text>
+            <text x="210" y="124" text-anchor="middle" fill="#4daa30" font-size="6" font-family="Inter,sans-serif" opacity="0.75">cliente final</text>
+
+            <!-- Proveedores top-left -->
+            <rect x="112" y="120" width="50" height="22" rx="5" fill="#1a100a" fill-opacity="0.95" stroke="#c87833" stroke-width="1.2"/>
+            <text x="137" y="132" text-anchor="middle" fill="#c87833" font-size="7.5" font-family="Inter,sans-serif" font-weight="600">Proveedores</text>
+            <text x="137" y="140" text-anchor="middle" fill="#c87833" font-size="5.5" font-family="Inter,sans-serif" opacity="0.75">SMT parts</text>
+
+            <!-- Ingeniería left -->
+            <rect x="112" y="171" width="42" height="22" rx="5" fill="#0a0f1a" fill-opacity="0.95" stroke="#4d9eff" stroke-width="1.2"/>
+            <text x="133" y="183" text-anchor="middle" fill="#4d9eff" font-size="7.5" font-family="Inter,sans-serif" font-weight="600">Ingeniería</text>
+            <text x="133" y="191" text-anchor="middle" fill="#4d9eff" font-size="5.5" font-family="Inter,sans-serif" opacity="0.75">diseño</text>
+
+            <!-- Manufactura bottom-left -->
+            <rect x="112" y="220" width="50" height="22" rx="5" fill="#130f1e" fill-opacity="0.95" stroke="#9b6ed0" stroke-width="1.2"/>
+            <text x="137" y="232" text-anchor="middle" fill="#9b6ed0" font-size="7.5" font-family="Inter,sans-serif" font-weight="600">Manufactura</text>
+            <text x="137" y="240" text-anchor="middle" fill="#9b6ed0" font-size="5.5" font-family="Inter,sans-serif" opacity="0.75">línea SMT</text>
+
+            <!-- QA/QC bottom -->
+            <rect x="178" y="248" width="64" height="22" rx="5" fill="#1a1100" fill-opacity="0.95" stroke="#f0a500" stroke-width="1.2"/>
+            <text x="210" y="260" text-anchor="middle" fill="#f0a500" font-size="8" font-family="Inter,sans-serif" font-weight="600">QA / QC</text>
+            <text x="210" y="268" text-anchor="middle" fill="#f0a500" font-size="5.5" font-family="Inter,sans-serif" opacity="0.75">root cause</text>
+
+            <!-- Stakeholders top-right -->
+            <rect x="258" y="120" width="56" height="22" rx="5" fill="#0a180f" fill-opacity="0.95" stroke="#28c840" stroke-width="1.2"/>
+            <text x="286" y="132" text-anchor="middle" fill="#28c840" font-size="7.5" font-family="Inter,sans-serif" font-weight="600">Stakeholders</text>
+            <text x="286" y="140" text-anchor="middle" fill="#28c840" font-size="5.5" font-family="Inter,sans-serif" opacity="0.75">roadmap</text>
+
+            <!-- Datos/BI right -->
+            <rect x="266" y="171" width="46" height="22" rx="5" fill="#0a0f1a" fill-opacity="0.95" stroke="#4d9eff" stroke-width="1.2"/>
+            <text x="289" y="183" text-anchor="middle" fill="#4d9eff" font-size="7.5" font-family="Inter,sans-serif" font-weight="600">Datos / BI</text>
+            <text x="289" y="191" text-anchor="middle" fill="#4d9eff" font-size="5.5" font-family="Inter,sans-serif" opacity="0.75">Power BI</text>
+
+            <!-- Mejora Continua bottom-right -->
+            <rect x="256" y="220" width="60" height="22" rx="5" fill="#1a100a" fill-opacity="0.95" stroke="#c87833" stroke-width="1.2"/>
+            <text x="286" y="232" text-anchor="middle" fill="#c87833" font-size="7.5" font-family="Inter,sans-serif" font-weight="600">Mejora Cont.</text>
+            <text x="286" y="240" text-anchor="middle" fill="#c87833" font-size="5.5" font-family="Inter,sans-serif" opacity="0.75">Lean · 6σ</text>
+
+            <!-- ══════════════════════════════
+                 KPI STRIP (bottom, always visible)
+                 ══════════════════════════════ -->
+            <rect x="10" y="295" width="400" height="35" rx="0" fill="#050d08" fill-opacity="0.88"/>
+            <line x1="10" y1="295" x2="410" y2="295" stroke="#2d6b20" stroke-width="0.8"/>
+            <text x="90" y="309" text-anchor="middle" fill="#556677" font-size="7" font-family="JetBrains Mono,monospace">YIELD RATE</text>
+            <text x="90" y="323" text-anchor="middle" fill="#28c840" font-size="12" font-weight="700" font-family="JetBrains Mono,monospace">99.2%</text>
+            <line x1="180" y1="297" x2="180" y2="328" stroke="#2d6b20" stroke-width="0.8"/>
+            <text x="210" y="309" text-anchor="middle" fill="#556677" font-size="7" font-family="JetBrains Mono,monospace">PROVEEDORES</text>
+            <text x="210" y="323" text-anchor="middle" fill="#c87833" font-size="12" font-weight="700" font-family="JetBrains Mono,monospace">12+ activos</text>
+            <line x1="310" y1="297" x2="310" y2="328" stroke="#2d6b20" stroke-width="0.8"/>
+            <text x="360" y="309" text-anchor="middle" fill="#556677" font-size="7" font-family="JetBrains Mono,monospace">OEE TARGET</text>
+            <text x="360" y="323" text-anchor="middle" fill="#4d9eff" font-size="12" font-weight="700" font-family="JetBrains Mono,monospace">&gt;95%</text>
           </svg>
         </div>
 
@@ -482,7 +621,7 @@
       <div class="about-text">
         <h2 class="about-heading">Datos + Aviación<br><span class="about-heading-accent">+ Inteligencia Artificial</span></h2>
         <p>
-          Soy de Taxco Guerrero, viviendo en Monterrey. Estudié Mecatrónica porque quería entender cómo funcionan los sistemas complejos — hardware, software y control en un solo proyecto. Hoy hago algo parecido, pero con datos: entender cómo funciona una aerolínea a través de sus números.
+          Soy de Taxco, Guerrero, viviendo en Monterrey. Estudié Mecatrónica porque quería entender cómo funcionan los sistemas complejos — hardware, software y control en un solo proyecto. Hoy hago algo parecido, pero con datos: entender cómo funciona una aerolínea a través de sus números.
         </p>
         <p>
           Actualmente finalicé la Maestría en IA Aplicada en el Tec de Monterrey, combinando ML aplicado con el contexto operacional de Flight Ops. Mi objetivo es construir sistemas que no solo analicen el pasado, sino que anticipen fallas y optimicen decisiones en tiempo real.
